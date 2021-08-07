@@ -1,6 +1,7 @@
 #include "LinkedList.h"
 
-void LinkedList::addToTail(Node* newTail) {
+void LinkedList::addToTail(int intToAdd) {
+	Node* newTail = new Node(intToAdd);
 	if (isEmptyList()) {
 		head = tail = newTail;
 	}
@@ -10,6 +11,69 @@ void LinkedList::addToTail(Node* newTail) {
 	}
 }
 
-bool LinkedList::isEmptyList() {
+bool LinkedList::deleteNode(int nodeToDelete)
+{
+	Node* index = head;
+	if ((head->val == nodeToDelete))
+	{
+		if (head->next == nullptr)
+		{
+			tail = nullptr;
+			head = nullptr;
+		}
+		else
+		{
+			head = head->next;
+		}
+		delete index;
+		return true;
+	}
+	else 
+	{
+		Node* prev = head;
+		while ((index != nullptr) && (index->val != nodeToDelete))
+		{
+			prev = index;
+			index = index->next;
+		}
+		if (index != nullptr)
+		{
+			prev->next = index->next;
+			if (index->next == nullptr)
+			{
+				tail = prev;
+			}
+			delete index;
+			return true;
+		}
+	}
+	return false;
+}
+
+void LinkedList::printList()
+{
+	Node* currentNode = head;
+	while (currentNode != nullptr)
+	{
+		cout << " " << currentNode->val;
+		currentNode = currentNode->next;
+	}
+}
+
+bool LinkedList::isEmptyList() 
+{
 	return head == nullptr;
+}
+
+bool LinkedList::search(int nodeToLookFor)
+{
+	Node *index = head;
+	while (index != nullptr)
+	{
+		if (index->val == nodeToLookFor)
+		{
+			return true;
+		}
+	}
+	return false;
 }

@@ -6,7 +6,7 @@ public:
     Node();
     Node(int _val, Node* _next = nullptr) : val(_val), next(_next) {};
     Node(const Node& node);    
-    Node* next;
+    Node *next;
     int val;
 };
 

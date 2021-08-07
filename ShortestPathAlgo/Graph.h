@@ -18,7 +18,14 @@ public:
 	virtual ~Graph() { delete vertices; }
 	void readGraph();
 	void makeEmptyGraph(int n);
+	int isEmpty();
+	void printGraph();
+
 	bool addEdge(int edge1, int edge2);
+	bool removeEdge(int edge1, int edge2);
+
+	bool isAdjacent(int edge1, int edge2);
+	LinkedList* getAdjList(int edge) {  }
 };
 
 #endif
