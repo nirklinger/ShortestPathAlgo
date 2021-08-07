@@ -25,7 +25,7 @@ public:
 	bool removeEdge(int edge1, int edge2);
 
 	bool isAdjacent(int edge1, int edge2);
-	LinkedList* getAdjList(int edge) {  }
+	LinkedList* getAdjList(int edge);
 };
 
 #endif

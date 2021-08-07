@@ -8,4 +8,5 @@ int main()
 {
     Graph graph;
     graph.readGraph();
+    cout << "test for end of file";
 }

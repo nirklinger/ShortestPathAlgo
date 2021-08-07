@@ -21,6 +21,7 @@ public:
     void printList();
     bool isEmptyList();
     bool search(int nodeToLookFor);
+    Node* getHead() { return head; }
 };
 
 #endif

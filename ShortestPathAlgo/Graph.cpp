@@ -1,12 +1,12 @@
 #include "Graph.h"
 
 void Graph::readGraph() {
-	//file function
 	cin >> n;
 	cin >> s;
 	cin >> t;
 
-	if (s < 0 || t < 0 || s > n || t > n) {
+	if (s < 0 || t < 0 || s > n || t > n) 
+	{
 		cout << "wrong input" << endl;
 		return;
 	}
@@ -16,11 +16,13 @@ void Graph::readGraph() {
 	int edge1, edge2;
 	bool lastEdgeIsValid = true;
 	
-	while (lastEdgeIsValid && cin >> edge1 && cin >> edge2) {
+	while (lastEdgeIsValid && cin >> edge1 && cin >> edge2) 
+	{
 		lastEdgeIsValid = addEdge(edge1, edge2);
 	}
 
-	if (!lastEdgeIsValid) {
+	if (!lastEdgeIsValid) 
+	{
 		cout << "wrong input" << endl;
 		return;
 	}
@@ -73,9 +75,24 @@ LinkedList* Graph::getAdjList(int edge)
 
 void Graph::printGraph()
 {
+	LinkedList* index;
+	Node *nodeToPrint;
 	for (int i = 1; i <= n; i++)
 	{
-		vertices[i].printList();
+		index = (*this).getAdjList(i);
+		nodeToPrint = index->getHead();
+		while (nodeToPrint != nullptr)
+		{
+			cout << i << " " << nodeToPrint->val << endl;
+			nodeToPrint = nodeToPrint->next;
+		}
 	}
+}
+
+int Graph::isEmpty()
+{
+	if (n == 0)
+		return 1;
+	return 0;
 }
 
