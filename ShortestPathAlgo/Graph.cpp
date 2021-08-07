@@ -96,3 +96,17 @@ int Graph::isEmpty()
 	return 0;
 }
 
+Graph& Graph::transpose()
+{
+	Graph tGraph;
+	tGraph.makeEmptyGraph(n);
+	for (int i = 1; i <= n; i++)
+	{
+		Node* index = vertices[i].getHead();
+		while (index != nullptr)
+		{
+			tGraph.vertices[index->val].addToTail(i);
+		}
+	}
+	return tGraph;
+}
