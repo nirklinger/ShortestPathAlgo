@@ -3,10 +3,14 @@
 
 #include <iostream>
 #include "Graph.h"
+#include "Algorithms.h"
 
 int main()
 {
     Graph graph;
     graph.readGraph();
     cout << "test for end of file";
+    Graph H = Algorithms::calcShortestPathes(graph);
+    H.printGraph();
+
 }

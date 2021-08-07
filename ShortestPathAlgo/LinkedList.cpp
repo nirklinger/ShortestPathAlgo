@@ -77,3 +77,15 @@ bool LinkedList::search(int nodeToLookFor)
 	}
 	return false;
 }
+
+void LinkedList::removeAllNodes()
+{
+	Node* index = head, *tmp;
+	while (index != nullptr)
+	{
+		tmp = index;
+		index = index->next;
+		delete tmp;
+	}
+	head = tail = nullptr;
+}

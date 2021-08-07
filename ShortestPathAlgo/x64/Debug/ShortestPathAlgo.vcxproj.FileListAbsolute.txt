@@ -1,1 +1,0 @@
-C:\Users\or_st\Programming\Algorithms\ShortestPathAlgo\ShortestPathAlgo\x64\Debug\ShortestPathAlgo.exe

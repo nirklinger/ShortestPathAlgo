@@ -16,13 +16,14 @@ public:
     {
         head = tail = nullptr;
     };
-    ~LinkedList();
+    ~LinkedList() { removeAllNodes(); }
     void addToTail(int newTail);
     bool deleteNode(int nodeToDelete);
     void printList();
     bool isEmptyList();
     bool search(int nodeToLookFor);
     Node* getHead() { return head; }
+    void removeAllNodes();
 };
 
 #endif

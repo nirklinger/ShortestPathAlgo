@@ -28,6 +28,7 @@ public:
 
 	bool isAdjacent(int edge1, int edge2);
 	LinkedList* getAdjList(int edge);
+	Graph& transpose();
 };
 
 #endif
