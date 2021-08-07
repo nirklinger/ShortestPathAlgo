@@ -16,6 +16,7 @@ public:
     {
         head = tail = nullptr;
     };
+    ~LinkedList();
     void addToTail(int newTail);
     bool deleteNode(int nodeToDelete);
     void printList();

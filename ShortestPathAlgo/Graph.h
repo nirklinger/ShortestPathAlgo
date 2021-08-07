@@ -20,7 +20,9 @@ public:
 	void makeEmptyGraph(int n);
 	int isEmpty();
 	void printGraph();
-
+	int getSIndex() const { return s; }
+	int getTIndex() const { return t; }
+	int getVerticesCount() const { return n; }
 	bool addEdge(int edge1, int edge2);
 	bool removeEdge(int edge1, int edge2);
 
