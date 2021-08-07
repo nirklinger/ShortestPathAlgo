@@ -5,7 +5,7 @@
 #include "LinkedList.h"
 
 class Algorithms {
-	static LinkedList* BFS(const Graph &g);
+	static LinkedList* BFS(Graph &g);
 	static void removeNonBFSEdges(Graph& g, LinkedList* levels);
 public:
 	static Graph& calcShortestPathes(Graph& g);

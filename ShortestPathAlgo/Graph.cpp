@@ -79,8 +79,12 @@ void Graph::printGraph()
 	Node *nodeToPrint;
 	for (int i = 1; i <= n; i++)
 	{
-		index = (*this).getAdjList(i);
+		index = getAdjList(i);
+		if (index == nullptr)
+			continue;
+
 		nodeToPrint = index->getHead();
+		
 		while (nodeToPrint != nullptr)
 		{
 			cout << i << " " << nodeToPrint->val << endl;
@@ -98,6 +102,8 @@ int Graph::isEmpty()
 
 Graph& Graph::transpose()
 {
+	printGraph();
+	getAdjList(1)->printList();
 	Graph tGraph;
 	tGraph.makeEmptyGraph(n);
 	for (int i = 1; i <= n; i++)
@@ -106,6 +112,7 @@ Graph& Graph::transpose()
 		while (index != nullptr)
 		{
 			tGraph.vertices[index->val].addToTail(i);
+			index = index->next;
 		}
 	}
 	return tGraph;

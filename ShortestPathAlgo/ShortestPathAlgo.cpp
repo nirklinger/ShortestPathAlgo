@@ -9,6 +9,7 @@ int main()
 {
     Graph graph;
     graph.readGraph();
+    graph.printGraph();
     cout << "test for end of file";
     Graph H = Algorithms::calcShortestPathes(graph);
     H.printGraph();

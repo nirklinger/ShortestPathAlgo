@@ -14,7 +14,7 @@ void LinkedList::addToTail(int intToAdd) {
 bool LinkedList::deleteNode(int nodeToDelete)
 {
 	Node* index = head;
-	if ((head->val == nodeToDelete))
+	if (head->val == nodeToDelete)
 	{
 		if (head->next == nullptr)
 		{
@@ -74,6 +74,8 @@ bool LinkedList::search(int nodeToLookFor)
 		{
 			return true;
 		}
+
+		index = index->next;
 	}
 	return false;
 }
