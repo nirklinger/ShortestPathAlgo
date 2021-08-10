@@ -66,7 +66,7 @@ bool Graph::isAdjacent(int edge1, int edge2)
 
 LinkedList* Graph::getAdjList(int edge) 
 { 
-	if (edge > 0 && edge <= n)
+	if (edge >= 0 && edge <= n)
 	{
 		return &(vertices[edge]);
 	}
@@ -100,18 +100,25 @@ int Graph::isEmpty()
 	return 0;
 }
 
-Graph& Graph::transpose()
+Graph::Graph(Graph&& other) {	
+	vertices = other.vertices;
+	n = other.n;
+	t = other.t;
+	s = other.s;
+
+	other.vertices = nullptr;
+	other.n = 0;
+}
+
+Graph Graph::transpose()
 {
-	printGraph();
-	getAdjList(1)->printList();
-	Graph tGraph;
-	tGraph.makeEmptyGraph(n);
-	for (int i = 1; i <= n; i++)
+	Graph tGraph(n,t,s);
+	for (int i = 0; i <= n; i++)
 	{
-		Node* index = vertices[i].getHead();
+		Node* index = getAdjList(i)->getHead();
 		while (index != nullptr)
 		{
-			tGraph.vertices[index->val].addToTail(i);
+			tGraph.addEdge(index->val,i);
 			index = index->next;
 		}
 	}

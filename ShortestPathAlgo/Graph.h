@@ -15,7 +15,10 @@ class Graph {
 	LinkedList* vertices;
 public:
 	Graph() { vertices = nullptr; }
-	virtual ~Graph() { delete vertices; }
+	Graph(int _n, int _s = 0, int _t = 0) : n(_n), s(_s), t(_t) { makeEmptyGraph(n); }
+	Graph(Graph& g) { n = g.n, t = g.t; s = g.s; vertices = g.vertices; }
+	Graph(Graph&& other);
+	virtual ~Graph() { delete[] vertices; }
 	void readGraph();
 	void makeEmptyGraph(int n);
 	int isEmpty();
@@ -28,7 +31,7 @@ public:
 
 	bool isAdjacent(int edge1, int edge2);
 	LinkedList* getAdjList(int edge);
-	Graph& transpose();
+	Graph transpose();
 };
 
 #endif

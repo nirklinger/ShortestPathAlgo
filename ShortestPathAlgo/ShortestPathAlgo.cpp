@@ -11,7 +11,8 @@ int main()
     graph.readGraph();
     graph.printGraph();
     cout << "test for end of file";
-    Graph H = Algorithms::calcShortestPathes(graph);
+    Graph H(Algorithms::calcShortestPathes(graph));
+    cout << "nir result" << endl;
     H.printGraph();
 
 }

@@ -8,7 +8,7 @@ class Algorithms {
 	static LinkedList* BFS(Graph &g);
 	static void removeNonBFSEdges(Graph& g, LinkedList* levels);
 public:
-	static Graph& calcShortestPathes(Graph& g);
+	static Graph calcShortestPathes(Graph g);
 
 };
 

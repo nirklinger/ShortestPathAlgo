@@ -80,14 +80,13 @@ void Algorithms::removeNonBFSEdges(Graph& g, LinkedList* levels) {
 	}
 }
 
-Graph& Algorithms::calcShortestPathes(Graph& g)
+Graph Algorithms::calcShortestPathes(Graph g)
 {
 	LinkedList* levels = BFS(g);
 	removeNonBFSEdges(g, levels);
-	Graph gTranspose = g.transpose();
+	Graph gTranspose(g.transpose());
 	gTranspose.printGraph();
 	LinkedList* levelsForTranspose = BFS(gTranspose);
 	removeNonBFSEdges(gTranspose, levelsForTranspose);
 	return gTranspose.transpose();
-
 }
