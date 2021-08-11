@@ -1,1 +1,4 @@
-# ShortestPathAlgo
+תרגיל תכנות באלגוריתמים תשפ"א סמסטר קיץ
+
+Or Samucian - 315872424
+Nir Klinger - 208345488

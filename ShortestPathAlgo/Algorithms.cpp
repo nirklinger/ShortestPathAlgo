@@ -46,6 +46,8 @@ void Algorithms::removeNonBFSEdges(Graph& g, LinkedList* levels) {
 	int n = g.getVerticesCount();
 	int* verticesByLevels = new int[n + 1];
 
+	// for Each vertice we place at its value as index in array,
+	// the level it was found on the BFS process
 	for (int i = 0; i < n; i++) {
 		Node* vertice = levels[i].getHead();
 
@@ -55,12 +57,13 @@ void Algorithms::removeNonBFSEdges(Graph& g, LinkedList* levels) {
 		}
 	}
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i <= n; i++) {
 		LinkedList* adjList = g.getAdjList(i);
 		Node* vertice = adjList != nullptr ? adjList->getHead() : nullptr;
 
 		while (vertice != nullptr) {
 			Node* tmp = vertice->next;
+			
 			if (verticesByLevels[vertice->val] != verticesByLevels[i] + 1) {
 				g.removeEdge(i, vertice->val);
 			}
@@ -68,7 +71,9 @@ void Algorithms::removeNonBFSEdges(Graph& g, LinkedList* levels) {
 			vertice = tmp;
 		}
 	}
+
 	Node* nodesToDelete = levels[n].getHead();
+
 	while (nodesToDelete != nullptr)
 	{
 		LinkedList* adjList = g.getAdjList(nodesToDelete->val);
@@ -80,12 +85,11 @@ void Algorithms::removeNonBFSEdges(Graph& g, LinkedList* levels) {
 	}
 }
 
-Graph Algorithms::calcShortestPathes(Graph g)
+Graph Algorithms::calcShortestPathes(Graph& g)
 {
 	LinkedList* levels = BFS(g);
 	removeNonBFSEdges(g, levels);
 	Graph gTranspose(g.transpose());
-	gTranspose.printGraph();
 	LinkedList* levelsForTranspose = BFS(gTranspose);
 	removeNonBFSEdges(gTranspose, levelsForTranspose);
 	return gTranspose.transpose();

@@ -16,7 +16,7 @@ class Graph {
 public:
 	Graph() { vertices = nullptr; }
 	Graph(int _n, int _s = 0, int _t = 0) : n(_n), s(_s), t(_t) { makeEmptyGraph(n); }
-	Graph(Graph& g) { n = g.n, t = g.t; s = g.s; vertices = g.vertices; }
+	Graph(Graph& g);
 	Graph(Graph&& other);
 	virtual ~Graph() { delete[] vertices; }
 	void readGraph();
@@ -28,7 +28,6 @@ public:
 	int getVerticesCount() const { return n; }
 	bool addEdge(int edge1, int edge2);
 	bool removeEdge(int edge1, int edge2);
-
 	bool isAdjacent(int edge1, int edge2);
 	LinkedList* getAdjList(int edge);
 	Graph transpose();

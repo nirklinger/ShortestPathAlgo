@@ -7,8 +7,7 @@ void Graph::readGraph() {
 
 	if (s < 0 || t < 0 || s > n || t > n) 
 	{
-		cout << "wrong input" << endl;
-		return;
+		throw std::invalid_argument("invalid input");		
 	}
 
 	makeEmptyGraph(n);
@@ -16,15 +15,19 @@ void Graph::readGraph() {
 	int edge1, edge2;
 	bool lastEdgeIsValid = true;
 	
-	while (lastEdgeIsValid && cin >> edge1 && cin >> edge2) 
+	while (lastEdgeIsValid && cin >> edge1) 
 	{
-		lastEdgeIsValid = addEdge(edge1, edge2);
+		if (cin >> edge2) {
+			lastEdgeIsValid = addEdge(edge1, edge2);
+		}
+		else {
+			lastEdgeIsValid = false;
+		}
 	}
 
 	if (!lastEdgeIsValid) 
 	{
-		cout << "wrong input" << endl;
-		return;
+		throw std::invalid_argument("invalid input");		
 	}
 }
 
@@ -100,7 +103,14 @@ int Graph::isEmpty()
 	return 0;
 }
 
-Graph::Graph(Graph&& other) {	
+Graph::Graph(Graph& g) {
+	n = g.n;
+	t = g.t; 
+	s = g.s; 
+	vertices = g.vertices;
+}
+
+Graph::Graph(Graph&& other) {
 	vertices = other.vertices;
 	n = other.n;
 	t = other.t;
