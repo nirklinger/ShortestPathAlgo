@@ -1,3 +1,7 @@
+/*
+Thie class in charge of our linkedlist data structure used by the graph
+*/
+
 #ifndef ListH
 #define ListH
 

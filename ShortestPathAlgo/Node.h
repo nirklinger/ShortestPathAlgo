@@ -1,3 +1,7 @@
+/*
+this class incharge of nodes in linked list
+*/
+
 #ifndef NodeH
 #define NodeH
 
