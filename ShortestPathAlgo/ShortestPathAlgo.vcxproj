@@ -23,7 +23,7 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{246f1285-f768-4ecf-a462-b3e40b0cac5c}</ProjectGuid>
     <RootNamespace>ShortestPathAlgo</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -144,15 +144,12 @@
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="ShortestPathAlgo.cpp" />
-    <ClCompile Include="UserInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithms.h" />
-    <ClInclude Include="File.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="UserInput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

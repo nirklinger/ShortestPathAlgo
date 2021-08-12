@@ -5,7 +5,7 @@ void Graph::readGraph() {
 	cin >> s;
 	cin >> t;
 
-	if (s < 0 || t < 0 || s > n || t > n) 
+	if (s <= 0 || t <= 0 || s > n || t > n) 
 	{
 		throw std::invalid_argument("invalid input");		
 	}
